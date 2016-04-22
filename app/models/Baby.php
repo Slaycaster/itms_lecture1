@@ -8,7 +8,7 @@
 			2 - DB (Directly query to SQL database, no model required)
 		*/
 
-		//The database used by the model.
+		//The table in the database used by the model.
 		protected $table = 'babies';
 
 		//The attribute that used as primary key.
@@ -20,7 +20,13 @@
 			'age' => 'required|numeric'
 		);
 
+		public static $updateRules = array(
+			'name' => 'required',
+			'age' => 'required|numeric'
+		);
+
 		/*
+		RELATIONSHIPS
 		public function foods()
 		{
 			$this->hasMany(....)

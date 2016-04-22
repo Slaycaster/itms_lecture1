@@ -59,7 +59,6 @@ class BabyController extends \BaseController {
 			Session::flash('message', 'Baby successfully saved!');
 			return Redirect::to('babies');
 		}
-
 	}
 
 
@@ -71,7 +70,13 @@ class BabyController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		//get the specific baby
+		$baby = Baby::find($id);
+		//SELECT * FROM BABY WHERE ID = ?
+
+		//show the view and pass the baby into it
+		return View::make('babies.show')
+			->with('baby', $baby);
 	}
 
 
@@ -83,7 +88,12 @@ class BabyController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		//get the specific baby
+		$baby = Baby::find($id);
+
+		//show the view and pass the baby into it
+		return View::make('babies.edit')
+			->with('baby', $baby);
 	}
 
 
@@ -95,7 +105,30 @@ class BabyController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+
+		//validate user input
+		$validation = Validator::make(Input::all(), Baby::$updateRules);
+
+		//gagawin na yung baby
+		if ($validation->fails())
+		{
+			return Redirect::to('babies/'. $id . '/edit')
+				->withErrors($validation)
+				->withInput();
+		}
+		else
+		{
+			//save the baby
+			$baby = Baby::find($id);
+			$baby->name = Input::get('name'); //$_GET['name'];
+			$baby->age = Input::get('age');
+			$baby->save();
+
+			//redirect to index
+			Session::flash('message', 'Baby successfully updated!');
+			return Redirect::to('babies');
+		}
+
 	}
 
 
@@ -107,7 +140,13 @@ class BabyController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		//delete
+		$baby = Baby::find($id);
+		$baby->delete();
+
+		//redirect
+		Session::flash('message', 'Baby successfully deleted to database');
+		return Redirect::to('babies');
 	}
 
 

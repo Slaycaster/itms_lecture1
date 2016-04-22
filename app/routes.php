@@ -16,13 +16,20 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-Route::resource('babies', 'BabyController');
+Route::resource('babies', 'BabyController'); //API
 
 /*
 	ROUTES
 	get
 	post
 	put
-	resource
+	resource 
+	(
+		URL | METHOD | FUNCTION
+		babies | GET | BabyController@index
+		babies/{id} | GET | BabyController@show
+		babies | POST | BabyController@store
+		babies/create | GET | BabyController@create
+	)
 */
 
