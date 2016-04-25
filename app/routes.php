@@ -16,8 +16,9 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-Route::resource('babies', 'BabyController'); //API
-
+Route::resource('toys', 'ToyController');
+Route::get('x', 'HomeController@showWelcome');
+Route::resource('babies', 'BabyController');
 /*
 	ROUTES
 	get

@@ -13,6 +13,8 @@
 			<ul class="nav navbar-nav">
 				<li> <a href="{{ URL::to('babies') }}">All Babies</a> </li>
 				<li> <a href="{{ URL::to('babies/create') }}">Create a Baby</a> </li>
+				<li> <a href="{{ URL::to('toys') }}">All Toys</a> </li>
+				<li> <a href="{{ URL::to('toys/create') }}">Make a Toy</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -22,3 +24,4 @@
 	</div>
 
 </html>
+

@@ -25,11 +25,10 @@
 			'age' => 'required|numeric'
 		);
 
-		/*
-		RELATIONSHIPS
-		public function foods()
+		//Defining relationships
+		//When the model is the reference and it has many.. (one-to-many)
+		public function toys()
 		{
-			$this->hasMany(....)
+			return $this->hasMany('Toy');
 		}
-		*/
 	}
