@@ -24,7 +24,7 @@ class HomeController extends BaseController {
 	{
 		$keywords = Input::get('hinahanap');
 
-		$babies = Baby::where('name', 'LIKE', '%'.$keywords.'%')->get();
+		$babies = Baby::where('name', 'LIKE', '%'.$keywords.'%')->orderBy('created_at', 'desc')->take(4)->get();
 
 		$searchBabies = new \Illuminate\Database\Eloquent\Collection();
 
