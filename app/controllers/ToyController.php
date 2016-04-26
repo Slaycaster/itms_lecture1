@@ -63,7 +63,7 @@ class ToyController extends \BaseController {
 			$file = array('image' => Input::file('ToyPicturePath'));
 
 			//Assigning to a variable to check whether there is an image or not.
-			$picture_path = Input::file('EmpPicturePath');
+			$picture_path = Input::file('ToyPicturePath');
 			if ($picture_path != null)
 			{
 				//upload path
@@ -79,7 +79,7 @@ class ToyController extends \BaseController {
 
 					$max_id = DB::table('toys')->max('id') + 1;
 					//Affix a format - 1Duck.png/1Duck.jpg
-					$fileName = $max_id.Input::get('name').$extension;
+					$fileName = $max_id.Input::get('name').'.'.$extension;
 				}
 				else
 				{
@@ -99,7 +99,7 @@ class ToyController extends \BaseController {
 			else
 			{
 				//save the default silhoutte image path
-				$toy->picture_path = '../img/silhoutte.jpg';
+				$toy->picture_path = 'img/silhoutte.jpg';
 			}
 
 			$toy->baby_id = Input::get('baby_id');

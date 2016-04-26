@@ -9,14 +9,16 @@
 		<script src="{{ URL::asset('js/jquery.min.js') }}"></script>
 		<!-- Bootstrap JS -->
 		<script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
-		<!-- Search JS -->
+		<!-- Custom Search JS -->
 		<script src="{{ URL::asset('js/search.js') }}"></script>
 	</head>	
 
 	<body>
+		<br>
+		<br>
 		<div class="col-lg-4 col-lg-offset-4">
 			<div class="form-group">
-				<input type="text" id="search-input" class="form-control" placeholder="Search..." onkeydown="down()" onkeyup="up()"> 
+				<input type="text" id="search-input" class="form-control" placeholder="Search..." onkeydown="down()" onkeyup="up()">
 			</div>
 
 			<div class="col-lg-12" id="search-results">

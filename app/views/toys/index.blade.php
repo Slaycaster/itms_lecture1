@@ -23,8 +23,10 @@
 				<tr>
 					<td>{{ $toy->id }}</td>
 					<td>{{ $toy->name }}</td>
-					<td></td>
-					<td>{{ $toy->baby->name }}</td>
+					<td>
+						<img style="height:100px; width:100px;"src="{{ URL::asset($toy->picture_path) }}">
+					</td>
+					<td>{{ $toy->baby->name }}, {{ $toy->baby->age }}</td>
 					<td>
 						<!--Show button-->
 						<a class="btn btn-xs btn-success" href="{{ URL::to('toys/'.$toy->id) }}">Show</a>

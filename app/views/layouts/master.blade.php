@@ -7,7 +7,7 @@
 	<div class="container-fluid">
 		<nav class="navbar navbar-inverse">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="{{ URL::to('babies') }}">My Babies</a>
+				<a class="navbar-brand" href="{{ URL::to('/') }}">My Babies</a>
 			</div>
 
 			<ul class="nav navbar-nav">

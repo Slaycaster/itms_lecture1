@@ -15,11 +15,6 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showWelcome()
-	{
-		return View::make('hello');
-	}
-
 	public function showHomepage()
 	{
 		return View::make('homepage');
@@ -27,18 +22,15 @@ class HomeController extends BaseController {
 
 	public function executeSearch()
 	{
-		$keywords = Input::get('keywords');
+		$keywords = Input::get('hinahanap');
 
-		$babies = Baby::all();
+		$babies = Baby::where('name', 'LIKE', '%'.$keywords.'%')->get();
 
 		$searchBabies = new \Illuminate\Database\Eloquent\Collection();
 
 		foreach($babies as $b)
 		{
-			if(Str::contains(Str::lower($b->name), Str::lower($keywords)))
-			{
-				$searchBabies->add($b);
-			}
+			$searchBabies->add($b);
 		}
 
 		return View::make('searchedBabies')
