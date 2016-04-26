@@ -20,4 +20,28 @@ class HomeController extends BaseController {
 		return View::make('hello');
 	}
 
+	public function showHomepage()
+	{
+		return View::make('homepage');
+	}
+
+	public function executeSearch()
+	{
+		$keywords = Input::get('keywords');
+
+		$babies = Baby::all();
+
+		$searchBabies = new \Illuminate\Database\Eloquent\Collection();
+
+		foreach($babies as $b)
+		{
+			if(Str::contains(Str::lower($b->name), Str::lower($keywords)))
+			{
+				$searchBabies->add($b);
+			}
+		}
+
+		return View::make('searchedBabies')
+			->with('searchBabies', $searchBabies);
+	}
 }

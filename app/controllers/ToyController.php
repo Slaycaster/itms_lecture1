@@ -67,7 +67,7 @@ class ToyController extends \BaseController {
 			if ($picture_path != null)
 			{
 				//upload path
-				$destinationPath = 'toys';
+				$destinationPath = 'laruan';
 
 				//getting the image file extension (.jpg, .png, .gif)
 				$extension = Input::file('ToyPicturePath')->getClientOriginalExtension();
@@ -102,11 +102,12 @@ class ToyController extends \BaseController {
 				$toy->picture_path = '../img/silhoutte.jpg';
 			}
 
+			$toy->baby_id = Input::get('baby_id');
 			$toy->save();
 
 		}
-			Session::flash('message', 'Toy successfully saved!');
-			return Redirect::to('toys');
+		Session::flash('message', 'Toy successfully saved!');
+		return Redirect::to('toys');
 	}
 
 

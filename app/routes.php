@@ -16,9 +16,10 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-Route::resource('toys', 'ToyController');
-Route::get('x', 'HomeController@showWelcome');
+Route::get('/', 'HomeController@showHomepage');
 Route::resource('babies', 'BabyController');
+Route::resource('toys', 'ToyController');
+Route::post('search/executeSearch', 'HomeController@executeSearch');
 /*
 	ROUTES
 	get

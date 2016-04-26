@@ -13,7 +13,7 @@
 		</div>
 	@endif
 
-	{{ Form::open(array('url' => 'toys', 'files' => 'true')) }}
+	{{ Form::open(array('url' => 'toys', 'method' => 'post', 'files' => 'true')) }}
 
 		<div class="form-group">
 			{{ Form::label('name', 'Name:') }}
@@ -36,5 +36,6 @@
 		</div>
 
 		{{ Form::submit('Make the toy!', array('class' => 'btn btn-primary btn-block')) }}
+
 	{{ Form::close() }}
 @stop
