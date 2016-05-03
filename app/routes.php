@@ -12,6 +12,8 @@
 */
 
 Route::get('/', 'HomeController@showHomepage');
+Route::get('reports/babies', 'BabyController@showReport');
+Route::get('reports/babies/{id}', 'BabyController@showBabyReport');
 Route::resource('babies', 'BabyController');
 Route::resource('toys', 'ToyController');
 Route::post('search/executeSearch', 'HomeController@executeSearch');

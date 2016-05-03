@@ -149,5 +149,24 @@ class BabyController extends \BaseController {
 		return Redirect::to('babies');
 	}
 
+	public function showReport()
+	{
+		//FPDF code to generate report
+		$pdf = PDF::loadView('babies_report')
+			->setPaper('letter')
+			->setOrientation('portrait');
+		return $pdf->stream();
+	}
+
+	public function showBabyReport($id)
+	{
+		Session::put('baby_report_id', $id);
+		//FPDF code to generate report
+		$pdf = PDF::loadView('baby_report')
+			->setPaper('letter')
+			->setOrientation('portrait');
+		return $pdf->stream();
+	}
+
 
 }

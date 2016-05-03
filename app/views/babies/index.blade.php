@@ -2,6 +2,7 @@
 @section('content')
 	<title>All Babies</title>
 	<h1>All the Babies around</h1>
+	<a href="{{URL::to('reports/babies')}}" class="btn btn-primary pull-right" onclick="window.open('{{ URL::to('reports/babies') }}', 'newwindow'); return false;">Generate PDF Report</a>
 
 	<!-- will be used to show messages -->
 	@if(Session::has('message'))
@@ -31,6 +32,9 @@
 
 						<!--Edit button-->
 						<a class="btn btn-xs btn-warning" href="{{ URL::to('babies/'.$baby->id.'/edit') }}">Edit</a>
+
+						<!-- PDF button -->
+						<a class="btn btn-xs btn-primary" href="{{ URL::to('reports/babies/'. $baby->id) }}" onclick="window.open('{{ URL::to('reports/babies/'. $baby->id) }}', 'newwindow'); return false;">PDF</a>
 
 						<!-- Delete button-->
 						{{ Form::open(array('url' => 'babies/' . $baby->id, 'class' => 'pull-right')) }}
