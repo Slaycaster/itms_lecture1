@@ -4,6 +4,15 @@
 	<h1>All the Babies around</h1>
 	<a href="{{URL::to('reports/babies')}}" class="btn btn-primary pull-right" onclick="window.open('{{ URL::to('reports/babies') }}', 'newwindow'); return false;">Generate PDF Report</a>
 
+	<div class="row">
+		<div class="col-md-4 col-md-offset-2">
+			<ol class="breadcrumb">
+			  <li><a href="{{URL::to('/')}}">Home</a></li>
+			  <li class="active">Babies</li>
+			</ol>
+		</div>
+	</div>
+
 	<!-- will be used to show messages -->
 	@if(Session::has('message'))
 		<div class="alert alert-info">
