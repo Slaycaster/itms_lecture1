@@ -17,6 +17,27 @@ Route::get('reports/babies/{id}', 'BabyController@showBabyReport');
 Route::resource('babies', 'BabyController');
 Route::resource('toys', 'ToyController');
 Route::post('search/executeSearch', 'HomeController@executeSearch');
+
+//API ROUTES
+Route::group(array('prefix' => 'api'), function() {
+
+	/*=========================================
+		-Since we will be using this just for 
+		CRUD, we won't need create and edit 
+		view from Laravel
+		-AngularJS (or any front-end in the
+		future) will handle both of these
+		forms
+		-This ensures that a user can't access
+		api/create or api/edit when there's
+		nothing there.
+	=========================================*/
+	Route::resource('comments', 'CommentController',
+		array('only' => array('index', 'store', 'destroy'))); //api/comments
+
+	//api/babies
+	//api/toys
+});
 /*
 	ROUTES
 	get
@@ -29,6 +50,8 @@ Route::post('search/executeSearch', 'HomeController@executeSearch');
 		babies/{id} | GET | BabyController@show
 		babies | POST | BabyController@store
 		babies/create | GET | BabyController@create
+		babies/{id} | PUT |BabyController@destroy
+		babies/{id} | POST | BabyController@update
 	)
 */
 
